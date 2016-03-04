@@ -29,7 +29,7 @@ Veya
 
 komutunu çalıştırıp,
 
-java -jar target/myapp-1.0-SNAPSHOT.jar
+      java -jar target/myapp-1.0-SNAPSHOT.jar
 
 "myapp" proje adı olacak şekilde düzenleyip compile edip projeyi ayağa kaldırabilirsiniz.
 
