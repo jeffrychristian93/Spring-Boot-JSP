@@ -14,8 +14,8 @@ import javax.validation.constraints.NotNull;
  *
  */
 
-@Entity
-public class User {
+@Entity							//Proje oluşturulurken Üyeler için JPA ile standart entity modeli oluşturulmuştur.
+public class User {				//Projede H2 DB kullanılmıştır. H2 db bir memory db olduğu için sunucu durdurulduğunda veriler gidecektir.
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

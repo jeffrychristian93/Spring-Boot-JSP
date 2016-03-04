@@ -8,6 +8,9 @@ package com.app;
  * @author Fatih Totrakanlı
  *
  */
+
+//Service interface'i tanımlanmıştır.
+//Spring boot kullanırken Service katmanıda kullanılmayabilir ancak bu projede kullanılmıştır.
 public interface IUserService {
 
 	   public Iterable<User> listAllUsers();

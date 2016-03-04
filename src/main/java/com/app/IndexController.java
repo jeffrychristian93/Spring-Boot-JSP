@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
  *
  */
 
+//Controller sınıfı
+//Temel map olarak /index atanmıştır. Proje ' localhost:8080/index ' adresinde çalışmaktadır. 
 @Controller
 @RequestMapping("/index")
 public class IndexController {
@@ -22,18 +24,21 @@ public class IndexController {
 	
 	private IUserService userService;
 	
+	//Spring Setter Injection
 	@Autowired
 	public void setUserService(IUserService userService) {
 		this.userService = userService;
 	}
-
+	
+	//Boş value değeri temel Mapping'i yani /index'i kullanacağını göstermektedir.
 	@RequestMapping(value="", method=RequestMethod.GET)
     public ModelAndView index() {
         ModelAndView model = new ModelAndView("index");
         model.addObject("list", userService.listAllUsers());
         return model;
     }
-
+	
+		//View katmanından gelen "id" değeri @PathVariable anotasyonu ile alınmaktadır.
 	   @RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
 	    public ModelAndView deleteUsers(@PathVariable long id) {
 		   	userService.deleteUser(id);
@@ -41,7 +46,8 @@ public class IndexController {
 	    }
 	   
 	  
-	
+	//@ModelAttribute anotasyonu View katmanından gelen kullanıcı bilgilerini sınıf tipinde getirir.
+	//@RequestParam anotasyonuda View katmanından bir istenen değeri getirir. @ModelAttribute daha kullanışlıdır.
     @RequestMapping(value="/add", method = RequestMethod.POST)
     public ModelAndView userRegister(@ModelAttribute("user")User user){
     	ModelAndView model = new ModelAndView("index");
@@ -64,6 +70,8 @@ public class IndexController {
     	        return model;
     	    }
     	  
+    	  //Bu methodda @RequestParam kullanılışı gösterilmiştir. Veriler tek tek alınmıştır.
+    	  //Bunun yerine @ModelAttribute kullanılıp "user" tipindeki nesnenin get methoduyla "id" bilgisi alınıp kaydedilebilirdi.
     	   @RequestMapping(value = "/update", method = RequestMethod.POST)
     	    public ModelAndView update(@RequestParam("id") long id,
     	                               @RequestParam("name") String name,@RequestParam("surname") String surname,
