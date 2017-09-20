@@ -1,41 +1,43 @@
-# Açıklama
+# Description
+
+This project contains the answer to the following question.
 
 Write a web app with using Spring Boot,there will be User registration with fields
 "name" , "surname" and "address" and you will display these informantions in a
-grid.Also we could do UPDATE,DELETE,CREATE,READ operations in grid.
+grid. Also we could do UPDATE,DELETE,CREATE,READ operations in grid.
 
-Projede, Spring Boot ve H2 Database kullanılarak CRUD (Create, Update, Read, Delete) işlemleri
-gerçekleştirilmiştir.
+# Which Technologies We Will Use?
 
-Spring Boot, Spring tabanlı uygulama geliştirmenin en hızlı ve kolay yolu olması amacıyla geliştirilmiş
-bir frameworktür. Spring Boot sayesinde boilerplate yani basmakalıp kodlardan sıyrılıp, sadece ihtiyacımız
-olan kodu yazabiliriz. Spring Boot web sunucusu olarak Embedded Tomcat ve diğer birçok ek  özellikle beraber gelmektedir.
-Proje içerisinde bulunan Application sınıfının çalıştırılmasıyla ayağa kalkmaktadır. Gömülü şekilde Tomcat bulundurduğu
-için ekstaradan sunucu oluşturmaya gerek kalmamaktadır.
+Crud operations were performed using Spring Boot, H2 (Memory Based) Database and JSP.
 
-H2 Database, Java ile yazılmış “Open Source” bir SQL database’dir. Memory bazlı database olduğu için uygulama sonladığında
-proje içersindeki verilerde kaybolmaktadır.
+Spring Boot was developed to be the fastest and easiest way to develop Spring based applications
+a framework. Thanks to Spring Boot, we can get rid of boilerplate code
+We can write the code. The Spring Boot web server comes with embedded Tomcat and many other additional features.
+By running the Application class in the project, it is getting up to speed. Embedded Tomcat
+there is no need to create additional servers for the server.
 
-# Proje Maven Projesidir
+H2 Database is an "Open Source" SQL database written in Java. Therefore it is a memory-based database, it disappears when the application is finished.
 
-Projeyi indirdikten sonra kullandığınız IDE ' e import edip "clean" "install" komutuyla çalıştırabilirsiniz.
-Projenin ayağa kalkması için Application sınıfının "run" edilmesi gerekmektedir.
+# Maven Project
 
-Veya
+After cloning the project you can import it to your IDE then run the "mvn clean install" command. By running the Application class in the project, it is getting up to run.
 
-"cmd" ile projeyi indirdiğiniz directory'e gidip
+* OR
+
+you can go to project directory, then run the following command;
 
       mvn clean install 
 
-komutunu çalıştırıp,
-
       java -jar target/myapp-1.0-SNAPSHOT.jar
 
-"myapp" proje adı olacak şekilde düzenleyip compile edip projeyi ayağa kaldırabilirsiniz.
+`myapp will be the name of your project.
 
-Proje ayağa kalktıktan sonra;
+If everything works correctly, you can start the CRUD operations with following URL.
 
       http://localhost:8080/index 
 
-adresinden CRUD işlemlerine başlayabilirsiniz.
-  
+
+If the project does not start with Application.class, please try the following command at Terminal.
+```
+mvn spring-boot:run
+```
