@@ -6,13 +6,10 @@ package com.app;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
-/**
- * @author Fatih Totrakanlı
- *
- */
 
-//Crud operasyonları için service katmanında gerekli methodlar tanımlanmıştır.
+
 @Service
 public class UserServiceImpl implements IUserService{
 
@@ -24,25 +21,21 @@ public class UserServiceImpl implements IUserService{
 		this.userRepo = userRepo;
 	}
 
-	//Tüm kullanıcıları listeler
 	@Override
 	public Iterable<User> listAllUsers() {
 		return userRepo.findAll();
 	}
 
-	//"id" bilgisine göre bir kullanıcı getirir.
 	@Override
 	public User getUserById(long id) {
 		return userRepo.findOne(id);
 	}
 
-	//Kullanıcı bilgisini kaydeder.
 	@Override
 	public User saveUser(User user) {
 		return userRepo.save(user);
 	}
 	
-	//"id" bilgisine göre kullanıcıyı siler.
 	@Override
 	public void deleteUser(long id) {
 		
@@ -50,5 +43,10 @@ public class UserServiceImpl implements IUserService{
 		
 	}
 
-	
+	@Override
+	public Iterable<User> find(String name, String surename) {
+		return userRepo.find(name, surename);
+	}
+
+
 }

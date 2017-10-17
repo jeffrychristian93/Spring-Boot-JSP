@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.app;
 
 import javax.persistence.Entity;
@@ -9,13 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-/**
- * @author Fatih Totrakanlı
- *
- */
-
-@Entity							//Proje oluşturulurken Üyeler için JPA ile standart entity modeli oluşturulmuştur.
-public class User {				//Projede H2 DB kullanılmıştır. H2 db bir memory db olduğu için sunucu durdurulduğunda veriler gidecektir.
+@Entity
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
